@@ -7,8 +7,10 @@
 //
 
 #import "AddReminderViewController.h"
+#import "MapViewController.h"
 
 @interface AddReminderViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -19,9 +21,10 @@
 }
 - (IBAction)addLocationPressed:(id)sender {
   if ([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]]) {
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:114000 identifier:@"This place"];
-    [self.locationManager startMonitoringForRegion:region];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder" : region}];
+    CLCircularRegion *regions = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:237 identifier:self.textField.text];
+    [self.locationManager startMonitoringForRegion:regions];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder" : regions}];
+    
   }
 }
 

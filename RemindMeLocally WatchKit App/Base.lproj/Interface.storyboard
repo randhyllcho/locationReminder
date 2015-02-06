@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController">
+                    <items>
+                        <table alignment="left" id="kmE-ZZ-U3A">
+                            <items>
+                                <tableRow identifier="SHOW_REGION" id="qaC-j8-mAx" customClass="CustomRowViewController">
+                                    <group key="rootItem" width="1" alignment="left" id="fIz-4d-8LV">
+                                        <items>
+                                            <label width="1" height="1" alignment="left" text="Label" textAlignment="center" id="sWi-z4-vuY"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowLabel" destination="sWi-z4-vuY" id="hrZ-NK-aJW"/>
+                                        <segue destination="og3-hp-rOY" kind="push" identifier="SHOW_MAP" id="v9b-F6-fBz"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="kmE-ZZ-U3A" id="MjG-lc-KQz"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="268"/>
+        </scene>
+        <!--Map Interface Controller-->
+        <scene sceneID="tb5-ge-Q0E">
+            <objects>
+                <controller id="og3-hp-rOY" customClass="MapInterfaceController">
+                    <items>
+                        <map height="100" alignment="left" id="qVe-Nn-v6O"/>
+                    </items>
+                    <connections>
+                        <outlet property="miniMap" destination="qVe-Nn-v6O" id="Khg-j8-Jlg"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="415" y="268"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

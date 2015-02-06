@@ -21,6 +21,7 @@
 @property(strong, nonatomic) CLLocationManager *locationManager;
 @property(strong, nonatomic) MKPointAnnotation *selectedAnnotation;
 
+
 @end
 
 @implementation MapViewController
@@ -43,6 +44,7 @@
   
   UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(mapLongPressed:)];
   [self.mapView addGestureRecognizer:longPress];
+
 }
 
 -(void) reminderAdded:(NSNotification *)notification {
@@ -71,11 +73,6 @@
     annotation.title = @"This place";
     [self.mapView addAnnotation:annotation];
   }
-}
-
--(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-  CLLocation *location = locations.firstObject;
-  NSLog(@"lat: %f and long: %f", location.coordinate.latitude, location.coordinate.longitude);
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
