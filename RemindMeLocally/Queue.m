@@ -10,4 +10,31 @@
 
 @implementation Queue
 
+-(instancetype) init{
+  if ((self = [super init])) {
+    items = [[NSMutableArray alloc] init];
+  }
+  return self;
+}
+
+-(void)enqueue:(id)element{
+  [items addObject:element];
+}
+
+-(id)dequeue{
+  if ([items count] > 0) {
+    id object = [self peek];
+    [items removeObjectAtIndex:0];
+    return object;
+  }
+  return nil;
+}
+
+-(id)peek{
+  if ([items count] > 0) {
+    return [items objectAtIndex:0];
+  }
+  return nil;
+}
+
 @end

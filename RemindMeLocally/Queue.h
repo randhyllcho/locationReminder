@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Queue : NSObject
+@interface Queue : NSObject {
+  NSMutableArray *items;
+}
+
+-(id)dequeue;
+-(void)enqueue:(id)element;
+-(id)peek;
 
 @end

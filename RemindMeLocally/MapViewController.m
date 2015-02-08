@@ -95,7 +95,7 @@
   [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 }
 
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"REMINDER_DETAIL"]) {
     AddReminderViewController *addReminderVC = (AddReminderViewController *)segue.destinationViewController;
     addReminderVC.annotation =  self.selectedAnnotation;

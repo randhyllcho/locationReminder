@@ -10,6 +10,10 @@
 
 @interface Stack : NSObject
 
+@property(strong,nonatomic) NSMutableArray *items;
 
+-(void)push:(id)element;
+-(id)pop;
+-(id)peek;
 
 @end
